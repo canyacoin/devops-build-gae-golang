@@ -17,6 +17,7 @@ RUN gcloud components install app-engine-go cloud-datastore-emulator
 ENV GOROOT /usr/lib/go
 ENV GOPATH /go
 ENV PATH /go/bin:$PATH
+ENV PATH /usr/bin:$PATH
 
 RUN go get \
     google.golang.org/appengine \
