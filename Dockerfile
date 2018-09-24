@@ -9,7 +9,7 @@ RUN apk add --no-cache \
     openssl \
     bash \
     musl-dev \
-    gcc \
+    build-base \
     go
 
 RUN gcloud components install app-engine-go cloud-datastore-emulator
@@ -24,4 +24,5 @@ RUN go get \
     github.com/op/go-logging \
     github.com/onsi/ginkgo/ginkgo \
     github.com/onsi/gomega
+
 
