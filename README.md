@@ -27,3 +27,5 @@ docker push registry.gitlab.com/canya-com/gae-golang-build-container:X.X <----- 
 ```
 docker run -it --entrypoint /bin/bash <imageID>
 ```
+
+docker push registry.gitlab.com/canya-com/gae-golang-build-container:stretch-0.1

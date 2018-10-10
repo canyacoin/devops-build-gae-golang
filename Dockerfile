@@ -2,27 +2,21 @@
 # Dockerfile to cook a build container for deploying Golang Services to Google App Engine
 #
 
-FROM google/cloud-sdk:alpine
+FROM golang:1.11.1-stretch
 
-RUN apk add --no-cache \
-    ca-certificates \
-    openssl \
-    bash \
-    musl-dev \
-    build-base \
-    go
+RUN echo "deb http://packages.cloud.google.com/apt cloud-sdk-stretch main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list \
+    && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 
-RUN gcloud components install app-engine-go cloud-datastore-emulator
-
-ENV GOROOT /usr/lib/go
-ENV GOPATH /go
-ENV PATH /go/bin:$PATH
-ENV PATH /usr/bin:$PATH
+RUN apt-get update && apt-get install -y \
+    google-cloud-sdk \
+    google-cloud-sdk-app-engine-go \
+    google-cloud-sdk-datastore-emulator \
+    build-essential \
+    wget \
+    git
 
 RUN go get \
     google.golang.org/appengine \
     github.com/op/go-logging \
     github.com/onsi/ginkgo/ginkgo \
     github.com/onsi/gomega
-
-
