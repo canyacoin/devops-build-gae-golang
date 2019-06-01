@@ -1,5 +1,12 @@
 # gae-golang-build-container
 
+**Mirror**
+
+This repo is mirrored from the Gitlab master as a backup. Please commit to this:
+
+https://gitlab.com/canyacoin/canyacore/devops/gae-golang-build-container
+---
+
 Cook a build container for deploying Golang Services to Google App Engine (Standard or Flexible)
 
 ## Create a new Docker image
